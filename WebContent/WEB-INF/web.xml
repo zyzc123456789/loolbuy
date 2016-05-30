@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>loolbuy</display-name>
+	<!-- 参数 -->
+	<context-param>
+		<param-name>logbackConfigLocation</param-name>
+		<param-value>/WEB-INF/logback.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+	</context-param>
+	<distributable/>
+	
+	<session-config>
+		<!-- session 过期时间（秒） -->
+		<session-timeout>28800</session-timeout>
+		<cookie-config>
+			<http-only>true</http-only>
+			<!--  以后开启 https 后放开下面设置 -->
+			<!-- 	<secure>true</secure>  -->		
+		</cookie-config>
+		<tracking-mode>COOKIE</tracking-mode>
+	</session-config>
+
+	
+
+	<!-- 处理程序 -->
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.ico</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.png</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.svg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.gif</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.apk</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>kaptcha</servlet-name>
+		<servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+		<!-- 配置参考 http://www.cnblogs.com/shaohz2014/p/3534677.html -->
+		<init-param>
+			<param-name>kaptcha.textproducer.char.length</param-name>
+			<param-value>6</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.border</param-name>
+			<param-value>no</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.textproducer.font.color</param-name>
+			<param-value>red</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.textproducer.font.names</param-name>
+			<param-value>宋体,楷体,微软雅黑</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.noise.impl</param-name>
+			<param-value>com.google.code.kaptcha.impl.NoNoise</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>kaptcha</servlet-name>
+		<url-pattern>/captcha.ahtml</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- 监听程序 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	
+
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 过滤 -->
+	
+<!-- 
+<filter>
+		<filter-name>loggingFilter</filter-name>
+		<filter-class>com.loolbuy.global.LoggingFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>loggingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>expiresFilter</filter-name>
+		<filter-class>com.loolbuy.global.CacheExpiresFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>expiresFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>shiroFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>wxFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>wxFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+ -->
+</web-app>

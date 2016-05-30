@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration>  
+ 
+<configuration>  
+	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator" />
+    <jmxConfigurator />  
+    <!-- 配置文件路径 -->  
+    <property name="LogPath" value="E:/Source/SVNSource/kuangjia/Ver3.0/log" /> 
+   
+   
+    <!-- 控制台输出日志 -->  
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">  
+        <layout class="com.jpt.global.util.CustomPatternLayout">  
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-32sessionId] [%-24thread] %-5level [%-36logger{36}] - %msg%n</pattern>   
+        </layout>  
+    </appender>  
+    
+    <!-- 文件输出日志:所有日志 -->  
+    <appender name="TRACE" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        	<fileNamePattern>${LogPath}/trace-%d{yyyy-MM-dd}.log</fileNamePattern>
+    	</rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+	        <layout class="com.jpt.global.util.CustomPatternLayout">  
+	            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-32sessionId] [%-24thread] %-5level [%-36logger{36}] - %msg%n</pattern>  
+	        </layout>  
+        	<Charset>UTF-8</Charset>
+        </encoder>
+    </appender>
+
+    <!-- 文件输出日志:错误日志 -->  
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+        	<level>ERROR</level>
+    	</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <FileNamePattern>${LogPath}/error_%d{yyyyMMdd}.log</FileNamePattern>  
+        </rollingPolicy>  
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+	        <layout class="com.jpt.global.util.CustomPatternLayout">  
+	            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-32sessionId] [%-24thread] %-5level [%-36logger{36}] - %msg%n</pattern>  
+	        </layout>  
+        	<Charset>UTF-8</Charset>
+        </encoder>
+    </appender> 
+
+    <!-- 文件输出日志:请求日志 -->  
+    <appender name="REQUEST" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        	<fileNamePattern>${LogPath}/request-%d{yyyy-MM-dd}.log</fileNamePattern>
+    	</rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+	        <layout class="com.jpt.global.util.CustomPatternLayout">  
+	            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-32sessionId] [%-24thread] %-5level [%-36logger{36}] - %msg%n</pattern>  
+	        </layout>  
+        	<Charset>UTF-8</Charset>
+        </encoder>
+    </appender>
+
+	<!-- 文件输出日志:数据库访问日志 -->
+    <appender name="DBACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        	<fileNamePattern>${LogPath}/dbaccess-%d{yyyy-MM-dd}.log</fileNamePattern>
+    	</rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+	        <layout class="com.jpt.global.util.CustomPatternLayout">  
+	            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-32sessionId] [%-24thread] %-5level [%-36logger{36}] - %msg%n</pattern>  
+	        </layout>  
+        	<Charset>UTF-8</Charset>
+        </encoder>
+    </appender>
+    
+	<!-- 文件输出日志:资金托管第三方日志 -->
+    <appender name="TRUSTEESHIP" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        	<fileNamePattern>${LogPath}/trusteeship-%d{yyyy-MM-dd}.log</fileNamePattern>
+    	</rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+	        <layout class="com.jpt.global.util.CustomPatternLayout">  
+	            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-32sessionId] [%-24thread] %-5level [%-36logger{36}] - %msg%n</pattern>  
+	        </layout>  
+        	<Charset>UTF-8</Charset>
+        </encoder>
+    </appender>
+
+	<!-- 文件输出日志:短信平台第三方日志 -->
+    <appender name="SMS" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        	<fileNamePattern>${LogPath}/sms-%d{yyyy-MM-dd}.log</fileNamePattern>
+    	</rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+	        <layout class="com.jpt.global.util.CustomPatternLayout">  
+	            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-32sessionId] [%-24thread] %-5level [%-36logger{36}] - %msg%n</pattern>  
+	        </layout>  
+        	<Charset>UTF-8</Charset>
+        </encoder>
+    </appender>
+
+
+  
+   <!-- 日志输出级别 -->
+    <root level="INFO">
+        <appender-ref ref="TRACE" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="STDOUT" />
+    </root> 
+    
+	<logger name="org.jdbcdslog" level="INFO">
+        <appender-ref ref="DBACCESS" />  
+	</logger>
+	
+   
+    <logger name="org.sitemesh" level="INFO">  
+    </logger>
+
+    <logger name="org.apache" level="INFO">  
+    </logger>
+
+    <logger name="javax" level="INFO">  
+    </logger>
+
+	<logger name="org.springframework" level="INFO">  
+    </logger>
+
+</configuration> 
