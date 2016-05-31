@@ -16,7 +16,7 @@ public class IndexCotroller
     @Autowired
     private IndexService indexService;
     
-    @RequestMapping(value = "/test/test.ahtml", method = RequestMethod.POST)
+    @RequestMapping(value = "/test/test.ahtml", method = RequestMethod.GET)
     public ModelAndView init(HttpServletRequest request) {
 
         ModelAndView model = new ModelAndView();
