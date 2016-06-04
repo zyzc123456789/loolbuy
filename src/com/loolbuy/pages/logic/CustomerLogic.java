@@ -17,11 +17,15 @@ public class CustomerLogic
     public CustomerDto queryUserByAccount(String userNm) {
         CustomerDto cust = new CustomerDto();
         cust.setId(1);
-        cust.setUserNm(userNm);
+        cust.setUserNm("lengyu");
         cust.setPassword("111111");
         cust.setMailAddress("315172009@qq.com");
         cust.setPhoneNo("17705142966");
-        
-        return null;
+        if(userNm.equals("lengyu")){
+            return cust;
+        }
+        else{
+            return null;
+        }
     }
 }

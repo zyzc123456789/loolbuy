@@ -12,6 +12,8 @@ import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import sun.rmi.runtime.Log;
+
 import com.loolbuy.common.model.CustomerDto;
 import com.loolbuy.pages.service.LoginService;
 
@@ -67,6 +69,7 @@ public class CaptchaFormAuthenticationFilter extends FormAuthenticationFilter{
     {
         try 
         {
+            System.out.println("executeLogin");
             Subject subject = doLogin(request, response);
             return onLoginSuccess(null, subject, request, response);
         } 

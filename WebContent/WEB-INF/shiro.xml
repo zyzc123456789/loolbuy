@@ -15,6 +15,7 @@
 		<property name="filterChainDefinitions">
 			<value>
 				/pages/** = authc
+				/login.jhtml = authc
 			</value>
 		</property>
 	</bean>

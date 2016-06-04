@@ -2,27 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>登录</title>
-<script type="text/javascript">
-	function login(){
-		 $.ajax({
-		        type: "POST",
-		        async: false,
-		        url: "" 
-		        data: {
-		        	userNm:$("#userNm").val(),
-		 			password:$("#password").val()
-		        },
-		        success: function (data) {
-		           
-		        }
-		    });
-	}
-</script>
+<title>首页</title>
 </head>
 <body>
-	<span>用户名</span><input id="userNm" value=""/>
-	<span>密码</span><input id="password" value = ""/>
-	<span id="errmsg"></span>
+欢迎进入
 </body>
 </html>
