@@ -427,14 +427,15 @@ input:-moz-placeholder,input:-ms-input-placeholder{
 .block-title{
   width:100%;
   margin-top:30px;
-  text-align: center;
+  text-align: left;
+  box-sizing:border-box;
+  box-shadow:0 0px 2px 1px #eee;
 }
 .block-title .title{
-  width: 100%;
+  padding-left:10px;
   height:40px;
   line-height: 40px;
   font-size:18px;
-  border-bottom: 1px solid #ebebeb;
   display: inline-block; 
   font-weight: bold;
 }
@@ -541,7 +542,11 @@ input:-moz-placeholder,input:-ms-input-placeholder{
   font-size: 18px;
   vertical-align: middle;
 }
+.block-content.cols{
+	width:1240px;
+}
 .block-content .col-prd{
+  margin-top:10px;
   width: 370px;
   padding:0 10px;
   padding-top:10px;
@@ -551,10 +556,9 @@ input:-moz-placeholder,input:-ms-input-placeholder{
    box-sizing: border-box;
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
+  margin-right:40px;
 }
-.block-content .col-prd.pad{
-  margin:0 40px;
-}
+
 .block-content .col-prd .prd-img-box{
   width: 350px;
   height: 350px;
