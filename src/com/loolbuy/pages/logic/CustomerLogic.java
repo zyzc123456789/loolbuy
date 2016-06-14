@@ -1,12 +1,16 @@
 package com.loolbuy.pages.logic;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.loolbuy.common.model.CustomerDto;
+import com.loolbuy.pages.dao.CustomerDao;
 
 @Component
 public class CustomerLogic
 {
+    @Autowired
+    public CustomerDao customerDao;
     /**
      * 查询用户
      * 
@@ -15,17 +19,6 @@ public class CustomerLogic
      * @return 用户信息
      */
     public CustomerDto queryUserByAccount(String userNm) {
-        CustomerDto cust = new CustomerDto();
-        cust.setId(1);
-        cust.setUserNm("lengyu");
-        cust.setPassword("111111");
-        cust.setMailAddress("315172009@qq.com");
-        cust.setPhoneNo("17705142966");
-        if(userNm.equals("lengyu")){
-            return cust;
-        }
-        else{
-            return null;
-        }
+        return customerDao.queryUserByAccount(userNm);
     }
 }

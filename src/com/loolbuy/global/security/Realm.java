@@ -12,10 +12,10 @@ import com.loolbuy.pages.logic.LoginLogic;
 public class Realm extends AbstractAuthenticatingRealm<CustomerDto>
 {
     @Autowired
-    private LoginLogic loginLogic;
+    public LoginLogic loginLogic;
 
     @Autowired
-    private CustomerLogic customerLogic;
+    public CustomerLogic customerLogic;
 
     /**
      * 用户登录时的认证处理，通过的场合返回用户情报，否则抛出例外 <br>
