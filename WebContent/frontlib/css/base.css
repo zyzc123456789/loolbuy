@@ -457,12 +457,12 @@ input:-moz-placeholder,input:-ms-input-placeholder{
   top: 20px;
   left: 10px
 }
-.block-prd .block-prd-link{
+.block-prd .rec-img-con{
   width: 1200px;
   display: block;
   overflow: hidden;
 }
-.block-prd .block-prd-img{
+.rec-img-con .prd-img{
   z-index: 1;
   width: 1260px;
   height:336px;
