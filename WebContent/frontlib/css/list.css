@@ -77,10 +77,10 @@
 }
 .cond-container{
 	margin-top:10px;
-	border: 1px solid #ececec;
 }
 .cond-container .cond{
-	    line-height: 30px;
+	width: 100%;
+	line-height: 30px;
     font-size: 14px;
     background: #F7F5F5;
     border: 1px dotted #ececec;
@@ -91,7 +91,7 @@
     height: 30px;
 }
 .cond-container .prop .div-name{
-	width: 60px;
+	width: 100px;
 	padding-left: 10px;
 	color:#B0A59F;
 	text-align: left;
@@ -99,7 +99,7 @@
 }
 
 .cond-container .prop .attrs{
-	    width: 1116px;
+	width: 1078px;
     color: #806F66;
     float: left;
     height: 30px;
@@ -116,4 +116,80 @@
 .cond-container .attrs a{
 	display: inline-block;
 	margin-right:10px;
+}
+.cond-container .attrs a:hover{
+	color:#00A29A;
+}
+
+.seh-res{
+	margin-top: 40px;
+}
+
+.seh-res .title{
+	height: 40px;
+	border:solid 1px #e8e8e8;
+	background: #f5f5f5;
+}
+.seh-res .title .left{
+	height: 40px;
+	width: 50%;
+	float: left;	
+}
+.seh-res .title .right{
+	height: 40px;
+	width: 50%;
+	float: left;
+}
+.seh-res .title .pager{
+	margin-right: -1px;
+	border-left: solid 1px #e5e5e5;
+    border-right: solid 1px #e5e5e5;
+	float: right;
+}
+
+.seh-res .pager .item{
+	float: left;
+	line-height: 40px;
+	padding:0 15px;
+}
+.seh-res .pager .link{
+	height:40px;
+	display: block;
+}
+
+.seh-res .pager .pg-info{
+}
+.seh-res .pager  .current{
+	color:#00A29A;
+}
+.seh-res .pager  .all{
+	
+}
+
+.seh-res .title .sorts{
+	float: left;
+	line-height: 40px;
+}
+.seh-res .sorts .sort{
+	float: left;
+	border-right: solid 1px #e5e5e5;
+}
+.seh-res .sorts .link{
+	height: 40px;
+	padding:0 15px;
+	display: block;
+}
+.seh-res .sort.active .link{
+	background: #fff;
+}
+.seh-res .sorts .link:hover{
+	background: #fff;
+}
+.seh-res .list{
+	width: 1200px;
+	overflow: hidden;
+}
+
+.pager-bar{
+	margin-bottom:30px;
 }

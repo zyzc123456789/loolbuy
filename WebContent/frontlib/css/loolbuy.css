@@ -125,7 +125,6 @@ input:-moz-placeholder,input:-ms-input-placeholder{
 .lay-1200{
   width: 1200px;
   margin:0 auto;
-
 }
 .header{
   width: 100%;
@@ -877,6 +876,51 @@ input:-moz-placeholder,input:-ms-input-placeholder{
 }
 
 
+.pager-bar{
+  width: 1200px;
+  height: 40px;
+  text-align: center;
+}
+.pager-bar .items{
+    border-left:1px solid #626260;
+    display: inline-block;
+}
+.pager-bar .item{
+    float: left;
+    line-height: 40px;
+    padding:0 15px;
+    border:solid 1px #626260;
+    margin-left:-1px;
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    -o-transition: all .1s linear;
+    transition: all .1s linear;
+}
+.pager-bar .item:hover,.pager-bar .item.active{
+  background: #f40;
+  border-color: #f40;
+  color:#fff;
+}
+.pager-bar .item.dot{
+  border:0;
+}
+.pager-bar .jump{
+  margin-left: 20px;
+  line-height: 40px;
+   font-size: 12px;
+   display: inline-block;
+}
+
+.pager-bar .jump li{
+  float: left;
+}
+.pager-bar .jump input{
+    height: 20px;
+    width: 30px;
+    margin-top: 5px;
+    text-align: center;
+}
+
 .icon.arrow.down{
   width:0;
   height:0;
@@ -912,6 +956,9 @@ input:-moz-placeholder,input:-ms-input-placeholder{
   float: right;
 }
 
+.ov-hidden{
+  overflow: hidden;
+}
 .btop{
   border-top: 1px solid #e5e5e5;
 }
