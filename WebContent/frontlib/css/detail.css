@@ -100,3 +100,144 @@
     color: #fff;
     font-size: 16px;
 }
+
+.prd-detail{
+	margin-top:50px;
+	width: 100%;
+}
+
+.prd-detail .infos,.prd-detail .brand-prds{
+	float: left;
+	border: 1px solid #ccc;
+}
+.prd-detail .infos{
+	width: 898px;
+	padding-bottom: 40px;
+}
+.prd-detail .infos .titles{
+	background: #252525;
+	height: 50px;
+}
+.prd-detail .titles .title{
+	width: 80px;
+	height: 50px;
+	text-align: center;
+	overflow: hidden;
+	float: left;
+}
+
+.prd-detail .titles .link{
+	height: 50px;
+	line-height: 50px;
+	font-size:14px;
+	color: #fff;
+	font-weight: 700;
+	display: block;
+}
+.prd-detail .titles .link.active,.prd-detail .titles .link:hover{
+	color: #dadada;
+}
+.prd-detail .titles .title-right{
+	width: 280px;
+	color:#fff;
+	position: relative;
+	float: right;	
+}
+.prd-detail .titles .btn{
+	width: 160px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #fff;
+    top: 5px;
+    right: 5px;
+    background: #00A29A;
+    border: 0;
+    position: absolute;
+    outline: 0;
+}
+.prd-detail .titles .price{
+	width: 80px;
+	line-height: 50px;
+	font-size:25px;
+	display: inline-block;
+}
+.prd-detail .titles .price em{
+	font-size: 16px;
+	font-style: normal;
+}
+.prd-detail .info{
+	padding: 0 40px;
+}
+.prd-detail .info .info-title{
+	font-size: 28px;
+	padding-top: 20px;
+	border-bottom:1px solid #000;
+}
+.prd-detail .info .info-content{
+	margin-top: 20px;
+}
+.prd-detail .info-title span{
+	padding-left: 10px;
+}
+.prd-detail .info-content .tb{
+	line-height: 40px;
+	font-size:14px;
+}
+.prd-detail .info-content .td-key{
+	width:80px;
+	font-weight: 600;
+	display: inline-block;
+}
+
+.prd-detail .info-content .td-val{
+	width:600px;
+	color: #666;
+	display: inline-block;
+}
+
+.prd-detail .brand-prds{
+	margin-left: 50px;
+	width: 248px;
+}
+.prd-detail .brand-prds .title{
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	background: #000;
+}
+.prd-detail .brand-prds .prd{
+	height: 60px;
+    overflow: hidden;
+    padding: 20px 10px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.prd-detail .prd img{
+	float: left;
+	width: 60px;
+	height: 60px;
+}
+
+.prd-detail .prd a:hover{
+	color: #00A29A;
+}
+
+.prd-detail .prd span{
+	float: left;
+    width: 150px;
+    padding-left: 10px;
+}
+.prd-detail .prd .price{
+	color:#00A29A;
+}
+.prd-detail .brand-prds .prd.lst{
+	border-bottom: 0;
+}
+
+.prd-detail .title span{
+	padding-left: 10px;
+
+}

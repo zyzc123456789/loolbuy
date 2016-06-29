@@ -433,7 +433,7 @@ input:-moz-placeholder,input:-ms-input-placeholder{
 }
 
 .header.idx-s .header-mid,.header.idx-s .header-bot{
-  display: none;
+ 
 }
 .header.idx-s .header-top,.header.idx-s .header-fix{
   position: fixed;
@@ -458,7 +458,6 @@ input:-moz-placeholder,input:-ms-input-placeholder{
   margin-top:20px;
 }
 .header.idx-s + .banner{
-  padding-top: 110px;
 }
 
 .header .postion{
